@@ -1,7 +1,6 @@
 package main
 
 import (
-       "errors"
 	"flag"
 	"fmt"
 	"github.com/aaronland/go-artisanal-integers"
@@ -11,7 +10,6 @@ import (
 	london_api "github.com/aaronland/go-londonintegers-api"
 	mission_api "github.com/aaronland/go-missionintegers-api"
 	"github.com/whosonfirst/go-whosonfirst-log"
-	"github.com/whosonfirst/go-whosonfirst-pool"
 	"github.com/whosonfirst/go-whosonfirst-pool-redis"
 	"io"
 	"net/url"
@@ -68,7 +66,7 @@ func main() {
 	pl, err := redis.NewRedisLIFOIntPool(*dsn, *key)
 
 	if err != nil {
-		logger.Fatal(pl_err)
+		logger.Fatal(err)
 	}
 
 	// set up the proxy service

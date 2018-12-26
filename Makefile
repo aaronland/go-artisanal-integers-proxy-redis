@@ -13,7 +13,9 @@ rmdeps:
 deps:
 	@GOPATH=$(shell pwd) go get "github.com/aaronland/go-artisanal-integers-proxy"
 	@GOPATH=$(shell pwd) go get "github.com/whosonfirst/go-whosonfirst-pool-redis"
-	@echo "move all the things from go-artisanal-integers-proxy in to place here..."
+	mv src/github.com/aaronland/go-artisanal-integers-proxy/vendor/github.com/aaronland/* src/github.com/aaronland/
+	mv src/github.com/aaronland/go-artisanal-integers-proxy/vendor/github.com/whosonfirst/* src/github.com/whosonfirst/
+	rm -rf src/github.com/whosonfirst/go-whosonfirst-pool-redis/vendor/github.com/whosonfirst/go-whosonfirst-pool
 
 vendor-deps: rmdeps deps
 	if test ! -d vendor; then mkdir vendor; fi
@@ -24,7 +26,6 @@ vendor-deps: rmdeps deps
 
 fmt:
 	go fmt cmd/*.go
-	go fmt service/*.go
 
 bin:	self
 	@GOPATH=$(shell pwd) go build -o bin/proxy-server cmd/proxy-server.go
