@@ -28,8 +28,8 @@ func main() {
 	var london_integers = flag.Bool("london-integers", false, "Use London Integers as an artisanal integer source.")
 	var mission_integers = flag.Bool("mission-integers", false, "Use Mission Integers as an artisanal integer source.")
 
-	var dsn = flag.String("dsn", "redis://localhost:6379", "...")
-	var key = flag.String("key", "artisanalintegers", "...")
+	var dsn = flag.String("dsn", "redis://localhost:6379", "A valid Redis DSN string.")
+	var key = flag.String("key", "artisanalintegers", "A valid Redis list key.")
 
 	flag.Parse()
 
