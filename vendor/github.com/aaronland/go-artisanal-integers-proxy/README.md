@@ -83,9 +83,15 @@ And then:
 
 For event more reporting set the `-loglevel` flag to `debug`.
 
+## Alternative (integer) pools
+
+By default the `proxy-server` uses an in-memory pool to store integers. There are alternative proxy server implementations that use persistent datastores for integer pools. They are:
+
+* https://github.com/aaronland/go-artisanal-integers-proxy-redis
+* https://github.com/aaronland/go-artisanal-integers-proxy-sqlite
+
 ## TO DO
 
-* Support alternative integer pools (this is a [go-whosonfirst-pool](https://github.com/whosonfirst/go-whosonfirst-pool) thing), for example a RDBMS or equivalent; currently only in-memory pools are available
 * AWS Lambda support
 
 ## See also
