@@ -14,7 +14,7 @@ type RedisProxyServiceArgs struct {
 	LondonIntegers   bool           `json:"london_integers"`
 	MissionIntegers  bool           `json:"mission_integers"`
 	MinCount         int            `json:"min_count"`
-	Logger           *log.WOFLogger `json:""`
+	Logger           *log.WOFLogger `json:",omitempty"`
 }
 
 func NewRedisProxyService(redis_args RedisProxyServiceArgs) (artisanalinteger.Service, error) {
